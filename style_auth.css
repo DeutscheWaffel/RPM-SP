@@ -1,0 +1,204 @@
+body {
+    background-color: rgb(34, 34, 34);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Стили верхней панели */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Логотип */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Ссылки меню */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff9900;
+}
+
+/* Стили для плашек регистрации и входа */
+.registration-container, .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.registration-container {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.registration-container.slide-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.login-container {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.login-container.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Стили для плашек */
+.registration-box, .login-box {
+    background: rgb(66, 66, 66);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.registration-box h2, .login-box h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.registration-box input, .login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.registration-box button, .login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f1701f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.registration-box button:hover, .login-box button:hover {
+    background-color: #e05a0c;
+}
+
+.login-link {
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+.login-link a {
+    color: #f1701f;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Нижняя плашка с текстом */
+.info-box {
+    background: rgb(66, 66, 66);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info-box h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .registration-box, .login-box, .info-box {
+        padding: 20px;
+    }
+}
+
+.error-message {
+    color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.success-message {
+    color: #00C851;
+    background-color: rgba(0, 200, 81, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+} 

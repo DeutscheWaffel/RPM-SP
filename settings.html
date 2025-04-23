@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style_settings.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Настройки</div>
+        <nav class="nav-links">
+        </nav>
+        <div class="user-panel">
+            <div class="user-info">
+                <img src="avatar-placeholder.png" alt="Аватар" class="user-avatar">
+                <span class="user-name">Имя пользователя</span>
+                <div class="dropdown-arrow">▼</div>
+            </div>
+            <div class="dropdown-menu">
+                <a href="profile.html" class="dropdown-item">Профиль</a>
+                <a href="settings.html" class="dropdown-item">Настройки</a>
+                <a href="login.html" class="dropdown-item">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="settings-container">
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h2>Основные настройки</h2>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Профиль</h3>
+                <div class="setting-item">
+                    <label>Имя пользователя</label>
+                    <input type="text" value="Имя пользователя">
+                </div>
+                <div class="setting-item">
+                    <label>Email</label>
+                    <input type="email" value="user@example.com">
+                </div>
+                <div class="setting-item">
+                    <label>Аватар</label>
+                    <div class="avatar-upload">
+                        <img src="avatar-placeholder.png" alt="Текущий аватар">
+                        <button class="upload-btn">Изменить</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Безопасность</h3>
+                <div class="setting-item">
+                    <label>Текущий пароль</label>
+                    <input type="password" placeholder="Введите текущий пароль">
+                </div>
+                <div class="setting-item">
+                    <label>Новый пароль</label>
+                    <input type="password" placeholder="Введите новый пароль">
+                </div>
+                <div class="setting-item">
+                    <label>Подтверждение пароля</label>
+                    <input type="password" placeholder="Подтвердите новый пароль">
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Уведомления</h3>
+                <div class="setting-item">
+                    <label>Email уведомления</label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>Push уведомления</label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="save-btn">Сохранить изменения</button>
+                <a href="panel.html" class="cancel-btn">Отмена</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

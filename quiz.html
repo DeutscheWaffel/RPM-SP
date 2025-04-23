@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style_quiz.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание опроса</title>
+    <!-- Подключаем React -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Создание опроса</div>
+        <nav class="nav-links">
+        </nav>
+        <div class="user-panel">
+            <div class="user-info">
+                <img src="avatar-placeholder.png" alt="Аватар" class="user-avatar">
+                <span class="user-name">Имя пользователя</span>
+                <div class="dropdown-arrow">▼</div>
+            </div>
+            <div class="dropdown-menu">
+                <a href="profile.html" class="dropdown-item">Профиль</a>
+                <a href="settings.html" class="dropdown-item">Настройки</a>
+                <a href="login.html" class="dropdown-item">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="quiz-container">
+        <div class="quiz-panel">
+            <div class="quiz-header">
+                <h2>Создание нового опроса</h2>
+                <div class="header-actions">
+                </div>
+            </div>
+
+            <div class="quiz-form">
+                <div class="form-group">
+                    <label for="group-select">Выберите группу:</label>
+                    <select id="group-select" class="group-select">
+                        <option value="">-- Выберите группу --</option>
+                        <option value="is-21">ИС-21</option>
+                        <option value="pi-21">ПИ-21</option>
+                        <option value="ks-21">КС-21</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Выберите студентов:</label>
+                    <div class="students-list" id="students-list">
+                        <!-- Список студентов будет динамически заполняться при выборе группы -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="quiz-title">Название опроса:</label>
+                    <input type="text" id="quiz-title" class="quiz-input" placeholder="Введите название опроса">
+                </div>
+
+                <div id="questions-container">
+                    <!-- React компонент с вопросами будет вставлен сюда -->
+                </div>
+
+                <div class="form-actions">
+                    <a href="group_list.html" class="cancel-btn">Отмена</a>
+                    <button class="create-btn">Создать опрос</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем наш React компонент -->
+    <script type="text/babel" src="quiz.js"></script>
+</body>
+</html> 

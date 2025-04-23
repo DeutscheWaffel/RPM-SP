@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+peewee
+pydantic
+python-multipart
+aiogram

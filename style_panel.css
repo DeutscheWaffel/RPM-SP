@@ -1,0 +1,512 @@
+body {
+    background-color: rgb(34, 34, 34);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Стили верхней навигационной панели */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Стили логотипа в навигации */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Стили навигационных ссылок */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff9900;
+}
+
+/* Стили панели пользователя */
+.user-panel {
+    position: relative;
+    margin-right: 300px;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    color: white;
+    font-size: 1rem;
+}
+
+.dropdown-arrow {
+    color: white;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.user-panel:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgb(66, 66, 66);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    display: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.user-panel:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+}
+
+/* Стандартизация высоты всех контейнеров */
+.control-panel-container, .admin-panel {
+    height: auto;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили контейнера для панели управления */
+.control-panel-container {
+    flex: 0 0 auto;
+    width: 300px;
+    min-width: 250px;
+    padding: 0;
+    margin: 0;
+    transform: none;
+    left: auto;
+}
+
+/* Стили основной панели управления */
+.control-panel {
+    background: rgb(66, 66, 66);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.control-panel h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Стили списка элементов управления */
+.control-items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Стили отдельных элементов управления */
+.control-item {
+    background-color: rgb(80, 80, 80);
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: block;
+}
+
+.control-item:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+/* Стили информационного блока */
+.info-box {
+    background: rgb(66, 66, 66);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-box h3 {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 500px) {
+    .control-panel, .info-box {
+        padding: 20px;
+    }
+}
+
+/* Стили для панели администратора - оригинальный стиль */
+.admin-panel-fixed {
+    position: fixed;
+    right: 0;
+    top: 60px;
+    width: 400px;
+    height: calc(100vh - 60px);
+    background-color: rgb(34, 34, 34);
+    border-left: none;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Новая версия для контейнера панелей */
+.admin-panels-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+    width: auto;
+    justify-content: flex-start;
+}
+
+.admin-panel {
+    flex: 0 0 auto;
+    width: 300px;
+    min-width: 250px;
+    position: relative;
+    background-color: rgb(66, 66, 66);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.admin-panel .control-panel {
+    max-width: 100%;
+    background: transparent;
+    box-shadow: none;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-changes, .pending-users {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.users-list, .profile-changes-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 10px 10px;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.users-list {
+    /* Стили перемещены в общее определение выше */
+}
+
+.profile-changes-list {
+    /* Стили перемещены в общее определение выше */
+}
+
+/* Стили для запросов на изменение профиля */
+.change-request-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.request-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.request-info .user-info {
+    margin-bottom: 5px;
+}
+
+.request-info .user-login {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.change-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+.change-details b {
+    color: #fff;
+    font-weight: bold;
+}
+
+.old-data, .new-data {
+    margin: 5px 0;
+    color: #f0f0f0;
+}
+
+.old-data {
+    opacity: 0.8;
+}
+
+.new-data {
+    opacity: 1;
+}
+
+.new-data b {
+    color: #8aff8a;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #ccc;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.request-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.approve-change-btn, .reject-change-btn {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.approve-change-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reject-change-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Стили для пустого списка */
+.empty-list {
+    text-align: center;
+    color: #ccc;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* Стили для текста загрузки и сообщений об ошибках */
+.loading {
+    text-align: center;
+    padding: 15px;
+    color: #666;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.error {
+    text-align: center;
+    padding: 15px;
+    color: #d32f2f;
+    background: rgba(255, 200, 200, 0.3);
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid #ffcdd2;
+}
+
+/* Дополнительные стили для элементов в админ-панели */
+.admin-panel h2 {
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.admin-panel h3 {
+    color: #f0f0f0;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Стили для списка заявок на регистрацию */
+.user-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user-item .user-info {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-item .user-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.user-item .user-login {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.approve-btn, .reject-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.approve-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.approve-btn:hover {
+    background-color: #45a049;
+}
+
+.reject-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #da190b;
+}
+
+/* Расположение всех панелей в ряд */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 0 20px 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.pending-users h3 {
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+}

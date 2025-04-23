@@ -1,0 +1,286 @@
+body {
+    background-color: rgb(34, 34, 34);
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Стили навигационной панели */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: rgb(100, 100, 100);
+}
+
+.nav-btn:hover {
+    background: rgb(120, 120, 120);
+    color: white;
+}
+
+/* Стили панели пользователя */
+.user-panel {
+    position: relative;
+    margin-right: 300px;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    color: white;
+    font-size: 1rem;
+}
+
+.dropdown-arrow {
+    color: white;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.user-panel:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgb(66, 66, 66);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    display: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.user-panel:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+
+/* Стили контейнера групп */
+.groups-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.groups-panel {
+    background: rgb(66, 66, 66);
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.groups-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.groups-header h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.back-btn {
+    padding: 10px 20px;
+    background: rgb(100, 100, 100);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-btn:hover {
+    background: rgb(120, 120, 120);
+}
+
+.add-group-btn {
+    padding: 10px 20px;
+    background: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.add-group-btn:hover {
+    background: #e68a00;
+}
+
+/* Стили списка групп */
+.groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.group-card {
+    background: rgb(80, 80, 80);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.group-card:hover {
+    transform: translateY(-2px);
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.group-header h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.group-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .create-poll-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.edit-btn {
+    background: rgb(100, 100, 100);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: rgb(120, 120, 120);
+}
+
+.create-poll-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.create-poll-btn:hover {
+    background: #45a049;
+}
+
+.group-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    color: rgb(180, 180, 180);
+    font-size: 0.9rem;
+}
+
+.info-value {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.info-value.warning {
+    color: #ff9900;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .group-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .group-actions {
+        flex-direction: column;
+    }
+    
+    .edit-btn, .create-poll-btn {
+        width: 100%;
+    }
+} 

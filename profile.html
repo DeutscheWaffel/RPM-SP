@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style_profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    
+    <!-- Подключаем React (используем более старую, стабильную версию) -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+</head>
+<body>
+    <!-- React компонент будет рендериться здесь -->
+    <div id="root">
+        <div style="text-align: center; padding: 20px;">
+            Загрузка профиля...
+        </div>
+    </div>
+
+    <!-- Проверка на наличие данных в localStorage -->
+    <script>
+        console.log('Проверка localStorage:', localStorage.getItem('userData'));
+    </script>
+
+    <!-- Пробуем простую версию React-компонента (без JSX) -->
+    <script src="profile-simple.js"></script>
+    
+    <!-- Если не сработало, используем запасной вариант -->
+    <script src="profile-fallback.js"></script>
+    
+    <!-- Обработчик ошибок и проверка рендеринга -->
+    <script>
+        window.addEventListener('error', function(e) {
+            console.error('Глобальная ошибка:', e.message);
+        });
+        
+        // Проверка рендеринга через 1 секунду
+        setTimeout(function() {
+            const rootContent = document.getElementById('root').innerHTML;
+            // Если остался только текст загрузки, значит что-то пошло не так
+            if (rootContent.includes('Загрузка профиля')) {
+                console.log('React не отрендерил профиль, запускаем запасной вариант вручную');
+                // Запускаем запасной скрипт напрямую
+                const event = new Event('DOMContentLoaded');
+                document.dispatchEvent(event);
+            }
+        }, 1000);
+    </script>
+</body>
+</html> 
